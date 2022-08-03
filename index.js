@@ -1,12 +1,14 @@
 const express = require("express");
 
 const app = express();
+const bodyParser = require("body-parser");
 
-app.use("/test", (req, res)=>{
-    console.log("Received request successful");
-    res.status(200).send("successful")
+const usersRoutes = require("./routes/users.route");
 
-});
-app.listen(3000, ()=>{
-    console.log("I am listening to port 3000")
+app.use(bodyParser.json());
+
+app.use("/users", usersRoutes);
+
+app.listen(3000, () => {
+  console.log("I am ready to lisen you");
 });
