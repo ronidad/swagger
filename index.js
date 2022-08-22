@@ -28,6 +28,9 @@ const swaggerOption = {
 
 const swaggerDocs = swaggerJsdoc(swaggerOption);
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
+app.get("/", function (req, res){
+  res.send("api working. go to /api-docs")
+})
 /** Swagger Initialization - END */
 
 app.use("/users", usersRoutes);
