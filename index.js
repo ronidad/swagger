@@ -36,6 +36,7 @@ app.get("/", function (req, res){
 app.use("/users", usersRoutes);
 app.use("/posts", postsRoutes);
 
-app.listen(3000, () => {
+app.listen(process.env.PORT || 3000 , () => {
   console.log("I am ready to listen you");
 });
+
