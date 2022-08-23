@@ -33,7 +33,7 @@ exports.login = (data, callback) =>{
   )
 },
 exports.logins = (data, callback) =>{
-  
+
   bcrypt.compare(data.passwordEnteredByUser, data.userpass, function(error, isMatch) {
     if (error) {
       return callback(error)
@@ -60,7 +60,7 @@ exports.logins = (data, callback) =>{
 },
 exports.GetAllUsers = (data, callback) => {
   db.query(
-    `SELECT * FROM users`,
+    `SELECT id, firstName, lastName, emailId FROM users`,
       [],
       (error, results, fields)=>{
           if (error) {
